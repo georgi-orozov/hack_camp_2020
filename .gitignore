@@ -1,0 +1,13 @@
+# ignore idea
+**/*.iws
+**/*.iml
+**/.idea/**
+!**/.idea/runConfigurations
+!**/.idea/runConfigurations/**
+**/target/**
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
