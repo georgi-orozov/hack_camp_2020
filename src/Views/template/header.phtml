@@ -1,0 +1,148 @@
+<?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
+?>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit="no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/css/my-style.css" rel="stylesheet">
+    <link href="/css/bootstrap-reboot.css" rel="stylesheet">
+    <!--- Icons -->
+    <link href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" rel="stylesheet">
+
+
+</head>
+                <!-- NAVIGATION BAR --->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="index.php">
+        <img src='' class="img-fluid" alt'LOGO'>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.php">Something</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.php">Something else</a>
+            </li>
+        </ul>
+        <div class="header-login">
+            <!-- If user is logged in to show logout button else to show login and register buttons --->
+        <?php
+        if (isset($_SESSION['email'])) : ?>
+            <!--Button trigger logout function-->
+            <form name="logout" action="" method="post">
+                    <button type="submit" class="btn btn-outline-danger"  name="logout-submit">Logout </button></form>
+        <?php else : ?>
+
+        <!-- Button trigger login modal -->
+        <button type="button" class="btn btn-outline-success" id="loginbutton" data-toggle="modal" data-target="#loginModal">
+            Log In
+        </button>
+        <!--  Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="login" method="post" action="">
+
+
+                            <div>
+                                <label for="user">
+                                    <i class="fas fa-user"></i>
+                                </label>
+                                <input type="text" placeholder="Email" name="email" required>
+                            </div>
+
+
+                            <div>
+                                <label for="pw">
+                                    <i class="fas fa-lock"></i>
+                                </label>
+                                <input type="password" placeholder="Password" name="password" required>
+                            </div>
+
+
+                            <button type="submit" name="login" class="btn btn-success btn-lg btn-block">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Button trigger register modal-->
+        <button type="button" class="btn btn-outline-danger" id="regbutton" data-toggle="modal" data-target="#registerModal">
+            Register
+        </button>
+    </div>
+        <!-- Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="registration" method="post" action="../../UserSystem.php">
+                            <div>
+                                <label for="name">Name : </label>
+                                <input type="text" placeholder="Full Name" name="name" required>
+                            </div>
+                            <div>
+                                <label for="email">Email : </label>
+                                <input type="email" placeholder="email@example.com" name="email" required>
+                            </div>
+                            <div>
+                                <label for="password">Password : </label>
+                                <input type="password" placeholder="Write your password" name="password" required>
+                            </div>
+                            <div>
+                                <label for="cfpassword">Confirm Password : </label>
+                                <input type="password" placeholder="Confirm your password" name="cfpassword" required>
+                            </div>
+                                </div>
+                            <button class="btn btn-success btn-lg btn-block" name = "register" type="submit">Submit</button>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>      
+        </div>
+        <?php endif ; ?>
+
+</nav>
+<title>Earthquakes<?php echo $view->pageTitle; ?></title>
