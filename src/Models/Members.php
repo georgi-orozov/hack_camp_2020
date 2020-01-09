@@ -1,8 +1,10 @@
 <?php
+
+
 require_once ('Database.php');
 
 
-class member
+class Members
 {
     protected $_dbHandle, $_dbInstance;
 
@@ -25,7 +27,5 @@ class member
             echo "login failed";
         }
     }
-
-
 
 }
