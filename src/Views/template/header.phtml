@@ -50,10 +50,10 @@
         <div class="header-login">
             <!-- If user is logged in to show logout button else to show login and register buttons --->
         <?php
-        if (isset($_SESSION['email'])) : ?>
+        if ($user->isLoggedIn()) : ?>
             <!--Button trigger logout function-->
             <form name="logout" action="" method="post">
-                    <button type="submit" class="btn btn-outline-danger"  name="logout-submit">Logout </button></form>
+                    <button type="submit" class="btn btn-outline-danger"  name="logout">Logout </button></form>
         <?php else : ?>
 
         <!-- Button trigger login modal -->
@@ -115,10 +115,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form name="registration" method="post" action="../../UserSystem.php">
+                        <form name="registration" method="post" action="../../index.php">
                             <div>
-                                <label for="name">Name : </label>
-                                <input type="text" placeholder="Full Name" name="name" required>
+                                <label for="fullName">Name : </label>
+                                <input type="text" placeholder="Full Name" name="fullName" required>
                             </div>
                             <div>
                                 <label for="email">Email : </label>
@@ -129,11 +129,11 @@
                                 <input type="password" placeholder="Write your password" name="password" required>
                             </div>
                             <div>
-                                <label for="cfpassword">Confirm Password : </label>
-                                <input type="password" placeholder="Confirm your password" name="cfpassword" required>
+                                <label for="password_check">Confirm Password : </label>
+                                <input type="password" placeholder="Confirm your password" name="password_check" required>
                             </div>
                                 </div>
-                            <button class="btn btn-success btn-lg btn-block" name = "register" type="submit">Submit</button>
+                            <button class="btn btn-success btn-lg btn-block" name="register" type="submit">Submit</button>
                         </form>
 
                     </div>
