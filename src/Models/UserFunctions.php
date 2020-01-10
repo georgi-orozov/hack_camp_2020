@@ -21,6 +21,22 @@ class UserFunctions {
         $result = $statement->execute(); // execute the PDO statement
         $this->_dbHandle = null; //close DB connection
         return $result;
+    }
 
+    public function login($email, $password)
+    {
+        $sqlQuery = 'SELECT password FROM members WHERE email=:email';
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->bindParam(':email', $email);
+        $statement->execute();
+        $row = $statement->fetch();
+        $hashed = $row['password'];
+        $this->_dbHandle = null; //close DB connection
+        if (password_verify($password, $hashed)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

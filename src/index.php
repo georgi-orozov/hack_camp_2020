@@ -33,6 +33,35 @@ if(isset($_POST['register'])) {
     }
 }
 
+if(isset($_POST['login'])) {
+
+    if(isset($_POST['email'])) {
+        $email = htmlentities($_POST['email'], ENT_QUOTES);
+    }
+
+    if(isset($_POST['password'])) {
+        $password = htmlentities($_POST['password'], ENT_QUOTES);
+    }
+
+    $userFunctions = new UserFunctions();
+    $result = $userFunctions->login($email, $password);
+
+
+    if ($result) {
+        //set SESSION
+        $_SESSION['email'] = $email;
+
+        //redirect to index.php
+        header('location: index.php');
+    }
+    else {
+        //display error
+        var_dump($result);
+        die();
+    }
+
+}
+
 if(isset($_POST['logout'])) {
 // remove all session variables
     session_unset();
