@@ -6,6 +6,7 @@ $view->pageTitle = 'Homepage';
 $user = new User();
 
 if(isset($_POST['register'])) {
+    //edited
 
     $userDetails =[];
 
