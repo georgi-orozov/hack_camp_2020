@@ -107,6 +107,9 @@ function callAPI($method, $url, $data){
 $get_data = callAPI('GET', 'http://3.11.108.65/api/v1/utilities/', false);
 
 $response = json_decode($get_data, true);
-var_dump($response);
-die();
+$view->count = 0;
+$view->row = 1;
+$view->utilities = $response['utilities'];
+//var_dump($response['utilities'][1]['dependencies']);
+//die();
 require_once('Views/index.phtml');
