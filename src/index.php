@@ -104,12 +104,33 @@ function callAPI($method, $url, $data){
     curl_close($curl);
     return $result;
 }
+// utilities
 $get_data = callAPI('GET', 'http://3.11.108.65/api/v1/utilities/', false);
 
 $response = json_decode($get_data, true);
 $view->count = 0;
 $view->row = 1;
 $view->utilities = $response['utilities'];
-//var_dump($response['utilities'][1]['dependencies']);
-//die();
+
+// buildings
+$get_data = callAPI('GET', 'http://3.11.108.65/api/v1/buildings/', false);
+$response2 = json_decode($get_data, true);
+$view->count = 0;
+$view->row = 1;
+$view->buildings = $response2['buildings'];
+
+//infrastructure
+$get_data = callAPI('GET', 'http://3.11.108.65/api/v1/infrastructure/', false);
+$response3 = json_decode($get_data, true);
+$view->count = 0;
+$view->row = 1;
+$view->infrastructure = $response3['infrastructure'];
+
+//demographics
+$get_data = callAPI('GET', 'http://3.11.108.65/api/v1/demographics/', false);
+$response4 = json_decode($get_data, true);
+$view->count = 0;
+$view->row = 1;
+$view->demographics = $response4['demographics'];
+
 require_once('Views/index.phtml');
