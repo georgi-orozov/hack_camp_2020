@@ -73,4 +73,56 @@ if(isset($_POST['logout'])) {
 // redirect to index.php
     header('location: index.php');
 }
+
+function callAPI($method, $url, $data){
+    $curl = curl_init();
+    switch ($method){
+        case "POST":
+            curl_setopt($curl, CURLOPT_POST, 1);
+            if ($data)
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+            break;
+        case "PUT":
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+            if ($data)
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+            break;
+        default:
+            if ($data)
+                $url = sprintf("%s?%s", $url, http_build_query($data));
+    }
+    // OPTIONS:
+    curl_setopt($curl, CURLOPT_URL, 'http://3.11.108.65/api/v1/buildings');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'APIKEY: 111111111111111111111',
+        'Content-Type: application/json',
+    ));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    // EXECUTE:
+    $result = curl_exec($curl);
+    if(!$result){die("Connection Failure");}
+    curl_close($curl);
+    return $result;
+}
+
+$get_data = callAPI('GET', 'http://3.11.108.65/api/v1/buildings'.$user['User']['customer_id'], false);
+$response = json_decode($get_data, true);
+$errors = $response['response']['errors'];
+$data = $response['response']['data'][0];
+
+$data_array =  array(
+    "customer"        => $user['User']['customer_id'],
+    "payment"         => array(
+        "number"         => $this->request->data['account'],
+        "routing"        => $this->request->data['routing'],
+        "method"         => $this->request->data['method']
+    ),
+);
+$make_call = callAPI('POST', 'http://3.11.108.65/api/v1/buildings', json_encode($data_array));
+$response = json_decode($make_call, true);
+$errors   = $response['response']['errors'];
+$data     = $response['response']['data'][0];
+
+
 require_once('Views/index.phtml');

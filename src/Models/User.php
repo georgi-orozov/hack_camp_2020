@@ -48,5 +48,4 @@ class User {
         return $this->_loggedIn;
     }
 
-
 }

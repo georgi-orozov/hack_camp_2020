@@ -7,6 +7,68 @@
     </div>
 
     <body>
+    <div class="container">
+        <?php if ($user->isLoggedIn()) : ?>
+        <h3>Buildings</h3>
+        <table class="table">
+        <thead class="thead-dark">
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Postcode</th>
+        <th scope="col">City</th>
+        <th scope="col">Size</th>
+        <th scope="col">Max_Occupant</th>
+        <th scope="col">Value</th>
+        <th scope="col">ID</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($view->building as $buildings) :?>)
+
+<tr>
+<th scope="row">1</th>
+<td><?php echo $buildings['name']?></td>
+<td><?php echo $buildings['type']?></td>
+<td><?php echo $buildings['postcode']?></td>
+<td><?php echo $buildings['city']?></td>
+<td><?php echo $buildings['size_m2']?></td>
+<td><?php echo $buildings['maxOccupants']?></td>
+<td><?php echo $buildings['value']?></td>
+<td><?php foreach ($buildings['_id'] as $_id) :?>
+</tr>
+
+<tr>
+<th scope="row">2</th>
+<td><?php echo $buildings['name']?></td>
+<td><?php echo $buildings['type']?></td>
+<td><?php echo $buildings['postcode']?></td>
+<td><?php echo $buildings['city']?></td>
+<td><?php echo $buildings['size_m2']?></td>
+<td><?php echo $buildings['maxOccupants']?></td>
+<td><?php echo $buildings['value']?></td>
+<td><?php foreach ($buildings['_id'] as $_id) :?>
+</tr>
+
+<tr>
+<th scope="row">3</th>
+<td><?php echo $buildings['name']?></td>
+<td><?php echo $buildings['type']?></td>
+<td><?php echo $buildings['postcode']?></td>
+<td><?php echo $buildings['city']?></td>
+<td><?php echo $buildings['size_m2']?></td>
+<td><?php echo $buildings['maxOccupants']?></td>
+<td><?php echo $buildings['value']?></td>
+<td><?php foreach ($buildings['_id'] as $_id) :?>
+</tr>
+
+
+<?php endforeach; ?>
+</tbody>
+</table>
+
+    </div>
     </body>
 
 
