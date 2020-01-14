@@ -36,6 +36,91 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
+                <h3> Demographics </h3>
+                <table class="table table-light">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">postcode</th>
+                        <th scope="col">Total Health Needs</th>
+                        <th scope="col">Total Mobility Needs</th>
+                        <th scope="col">Total Elderly</th>
+                        <th scope="col">Total Population</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($view->demographics as $demographics) : ?>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?php echo $demographics['_id']?></td>
+                            <td><?php echo $demographics['postcode']?></td>
+                            <td><?php echo $demographics['totalHealthNeeds']?></td>
+                            <td><?php echo $demographics['totalMobilityNeeds']?></td>
+                            <td><?php echo $demographics['totalElderly']?></td>
+                            <td><?php echo $demographics['totalPopulation']?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                </table>
+            <h3> Buildings </h3>
+                <table class="table table-light">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">type</th>
+                        <th scope="col">postcode</th>
+                        <th scope="col">city</th>
+                        <th scope="col">size_m2</th>
+                        <th scope="col">maxOccupants</th>
+                        <th scope="col">value</th>
+                        <th scope="col">id</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($view->buildings as $buildings) : ?>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?php echo $buildings['name']?></td>
+                            <td><?php echo $buildings['type']?></td>
+                            <td><?php echo $buildings['postcode']?></td>
+                            <td><?php echo $buildings['city']?></td>
+                            <td><?php echo $buildings['size_m2']?></td>
+                            <td><?php echo $buildings['maxOccupants']?></td>
+                            <td><?php echo $buildings['value']?></td>
+                            <td><?php echo $buildings['_id']?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                </table>
+                <h3> Infrastructures </h3>
+                <table class="table table-light">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Area codes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($view->infrastructure as $infrastructure) : ?>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?php echo $infrastructure['_id']?></td>
+                            <td><?php echo $infrastructure['type']?></td>
+                            <td><?php echo $infrastructure['name']?></td>
+                            <td><?php echo $infrastructure['classification']?></td>
+                            <td><?php foreach ($infrastructure['postcodes'] as $postcodes) { echo  $postcodes.' / ';}?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
             <?php endif; ?>
         </div>
     </body>
