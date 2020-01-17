@@ -14,6 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title><?php echo $view->pageTitle; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -40,12 +41,21 @@
             <li class="nav-item active">
                 <a class="nav-link" href="../../index.php">Home <span class="sr-only">(current)</span></a>
             </li>
+            <?php
+            if ($user->isLoggedIn()) : ?>
             <li class="nav-item active">
-                <a class="nav-link" href="../../index.php">Something</a>
+                <a class="nav-link" href="../../buildings.php">Buildings</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../../index.php">Something else</a>
+                <a class="nav-link" href="../../infrastructure.php">Infrastructure</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../../demographics.php">Demographics</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../../utilities.php">Utilities</a>
+            </li>
+            <?php endif ; ?>
         </ul>
         <div class="header-login">
             <!-- If user is logged in to show logout button else to show login and register buttons --->
@@ -145,4 +155,3 @@
         <?php endif ; ?>
 
 </nav>
-<title>Earthquakes<?php echo $view->pageTitle; ?></title>

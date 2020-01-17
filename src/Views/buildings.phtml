@@ -1,0 +1,35 @@
+<?php require('template/header.phtml') ?>
+<div class="container">
+    <h3> Buildings </h3>
+    <table class="table table-light">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">type</th>
+            <th scope="col">postcode</th>
+            <th scope="col">city</th>
+            <th scope="col">size_m2</th>
+            <th scope="col">maxOccupants</th>
+            <th scope="col">value</th>
+            <th scope="col">id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($view->buildings as $buildings) : ?>
+            <tr>
+                <th scope="row">1</th>
+                <td><?php echo $buildings['name']?></td>
+                <td><?php echo $buildings['type']?></td>
+                <td><?php echo $buildings['postcode']?></td>
+                <td><?php echo $buildings['city']?></td>
+                <td><?php echo $buildings['size_m2']?></td>
+                <td><?php echo $buildings['maxOccupants']?></td>
+                <td><?php echo $buildings['value']?></td>
+                <td><?php echo $buildings['_id']?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php require('template/footer.phtml') ?>
