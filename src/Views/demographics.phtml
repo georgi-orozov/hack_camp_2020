@@ -1,4 +1,32 @@
 <?php require('template/header.phtml') ?>
-
-
+<div class="container">
+    <h3> Demographics </h3>
+    <table class="table table-light">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">postcode</th>
+            <th scope="col">Total Health Needs</th>
+            <th scope="col">Total Mobility Needs</th>
+            <th scope="col">Total Elderly</th>
+            <th scope="col">Total Population</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($view->demographics as $demographics) : ?>
+            <tr>
+                <th scope="row">1</th>
+                <td><?php echo $demographics['_id']?></td>
+                <td><?php echo $demographics['postcode']?></td>
+                <td><?php echo $demographics['totalHealthNeeds']?></td>
+                <td><?php echo $demographics['totalMobilityNeeds']?></td>
+                <td><?php echo $demographics['totalElderly']?></td>
+                <td><?php echo $demographics['totalPopulation']?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    </table>
+</div>
 <?php require('template/footer.phtml') ?>

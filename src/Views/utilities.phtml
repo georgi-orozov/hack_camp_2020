@@ -1,4 +1,31 @@
 <?php require('template/header.phtml') ?>
-
-
+<div class="container">
+    <h3>Utilities</h3>
+    <table class="table table-light">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">postcode</th>
+            <th scope="col">name</th>
+            <th scope="col">type</th>
+            <th scope="col">classification</th>
+            <th scope="col">dependencies</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($view->utilities as $utility) : ?>
+            <tr>
+                <th scope="row">1</th>
+                <td><?php echo $utility['_id']?></td>
+                <td><?php echo $utility['postcode']?></td>
+                <td><?php echo $utility['name']?></td>
+                <td><?php echo $utility['type']?></td>
+                <td><?php echo $utility['classification']?></td>
+                <td><?php foreach ($utility['dependencies'] as $dependency) { echo  $dependency;}?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 <?php require('template/footer.phtml') ?>

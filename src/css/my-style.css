@@ -20,13 +20,7 @@ body{
 header {
     text-align: center;
 }
-.container {
-    background: #000;
-    color: #fff;
-    opacity: 0.9 !important;
-    border-radius: 25px;
 
-}
 hr.socket {
     width: 100%;
     border-top: .2vw solid #666b71;
