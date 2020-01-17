@@ -9,6 +9,26 @@
     <body>
         <div class="container">
             <?php if ($user->isLoggedIn()) : ?>
+                <div class="jumbotron jumbotron-fluid mb-0">
+                    <div class="container-fluid text-center ">
+                        <h2>Can't find what you're looking for? Just search it!</h2>
+                        <form action="../Search.php" class="form-inline justify-content-center" method="post">
+                            <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search" name="text">
+                            <div class="input-group mr-sm-4">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="searchInField">Search In</label>
+                                </div>
+                                <select class="custom-select" id="searchInField" name="searchIn">
+                                    <option value="1" selected>Buildings</option>
+                                    <option value="2">Demographics</option>
+                                    <option value="3">Utilities</option>
+                                    <option value="4">Infrastructure</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Search</button>
+                        </form>
+                    </div>
+                </div>
             <h3>Utilities</h3>
             <table class="table table-light">
                 <thead class="thead-light">

@@ -1,0 +1,33 @@
+<?php
+require('template/header.phtml') ?>
+<h3>Utilities</h3>
+<div class="container">
+            <table class="table table-light">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id</th>
+                    <th scope="col">postcode</th>
+                    <th scope="col">name</th>
+                    <th scope="col">type</th>
+                    <th scope="col">classification</th>
+                    <th scope="col">dependencies</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($view->dataSet as $utility) : ?>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><?php echo $utility->getId()?></td>
+                    <td><?php echo $utility->getPostcode()?></td>
+                    <td><?php echo $utility->getClassification()?></td>
+                    <td><?php echo $utility->getUName()?></td>
+                    <td><?php echo $utility->getUType()?></td>
+                    <td><?php echo $utility->getDependencies()?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+</div>
+<?php
+require('template/footer.phtml') ?>
