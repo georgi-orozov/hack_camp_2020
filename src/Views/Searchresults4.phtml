@@ -1,0 +1,32 @@
+<?php
+
+require('template/header.phtml') ?>
+    <div class="container">
+<h3> Infrastructures </h3>
+<table class="table table-light">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Type</th>
+        <th scope="col">Name</th>
+        <th scope="col">Classification</th>
+        <th scope="col">Area codes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($view->dataSet as $infrastructure) : ?>
+        <tr>
+            <th scope="row">1</th>
+            <td><?php echo $infrastructure->getId()?></td>
+            <td><?php echo $infrastructure->getIName()?></td>
+            <td><?php echo $infrastructure->getIType()?></td>
+            <td><?php echo $infrastructure->getClassification()?></td>
+            <td><?php echo $infrastructure->getAreacodes()?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+    </div>
+
+<?php require('template/footer.phtml')?>

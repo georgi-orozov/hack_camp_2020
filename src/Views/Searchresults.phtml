@@ -1,0 +1,40 @@
+<?php require('template/header.phtml') ?>
+
+
+<div class="container">
+    <h1>Search Result</h1>
+    <!--- Buildings -->
+    <h3> Buildings </h3>
+    <table class="table table-light">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">type</th>
+            <th scope="col">postcode</th>
+            <th scope="col">city</th>
+            <th scope="col">size_m2</th>
+            <th scope="col">maxOccupants</th>
+            <th scope="col">value</th>
+            <th scope="col">id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($view->dataSet as $buildings) : ?>
+            <tr>
+                <th scope="row">1</th>
+                <td><?php echo $buildings->getId();?></td>
+                <td><?php echo $buildings->getBName();?></td>
+                <td><?php echo $buildings->getBType();?></td>
+                <td><?php echo $buildings->getPostcode();?></td>
+                <td><?php echo $buildings->getCity();?></td>
+                <td><?php echo $buildings->getSize();?></td>
+                <td><?php echo $buildings->getMaxOccupants();?></td>
+                <td><?php echo $buildings->getBValue();?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
+    <?php require ('template/footer.phtml') ?>
