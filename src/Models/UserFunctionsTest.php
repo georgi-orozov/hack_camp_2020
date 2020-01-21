@@ -3,6 +3,20 @@ require 'UserFunctions.php';
 use PHPUnit\Framework\TestCase;
 
 class UserFunctionsTest extends TestCase {
+    public function testLoginReturnType() {
+        $userFunctions = new UserFunctions();
+        $result = $userFunctions->login("name@email.com", "name");
+        $this->assertIsBool($result);
+    }
+
+    public function testRegisterReturnType() {
+        $userFunctions = new UserFunctions();
+        $userDetails["email"] = "nik@email.com";
+        $userDetails["fullName"] = "Nik Paule";
+        $userDetails["password"] = "myPassIsNik";
+        $result = $userFunctions->register($userDetails);
+        $this->assertIsBool($result);
+    }
 
     public function testLoginSuccess() {
         $userFunctions = new UserFunctions();
